@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Author {
+  id           String   @id @default(uuid())
+  username     String   @unique
+  password     String
+  email        String?  @unique
+  biography    String?  @default("Biografia...")
+  profilePhoto String?
+  createdAt    DateTime @default(now())
+
+  @@map("authors")
+  poetrys      Poetry[]
+  likes        Like[]
+}
+
+model Poetry {
+  id        String    @id @default(uuid())
+  title     String
+  content   String
+  createdAt DateTime  @default(now())
+  tags      String[]
+
+  author    Author    @relation(fields: [authorId], references: [id])
+  authorId  String
+  
+  @@map("poetrys")
+  likes     Like[]
+}
+
+model Like {
+  id       String  @id @default(uuid())
+  poetryId String
+  authorId String
+
+  poetry   Poetry  @relation(fields: [poetryId], references: [id])
+  author   Author  @relation(fields: [authorId], references: [id])
+
+  @@unique([poetryId, authorId])
+  @@map("likes")
+}
