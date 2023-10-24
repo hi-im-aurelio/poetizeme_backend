@@ -11,7 +11,16 @@ class PoetryFindService {
         const poetry = await database.poetry.findUnique({
             where: { id: id },
             include: {
-                author: true,
+                author: {
+                    select: {
+                        id: true,
+                        username: true,
+                        email: true,
+                        biography: true,
+                        profilePhoto: true,
+                        createdAt: true
+                    }
+                },
                 likes: true
             }
         });

@@ -6,7 +6,16 @@ class PoetryListService {
 
         const poetrys = await database.poetry.findMany({
             include: {
-                author: true,
+                author: {
+                    select: {
+                        id: true,
+                        username: true,
+                        email: true,
+                        biography: true,
+                        profilePhoto: true,
+                        createdAt: true
+                    }
+                },
                 likes: true
             }
         });

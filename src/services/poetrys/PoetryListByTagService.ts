@@ -1,18 +1,27 @@
 import database from "../../prisma";
 
 interface PoetryListByTagRequest {
-    tag: string;
+    tagName: string;
 }
 class PoetryListByTagService {
 
-    async execute({ tag }: PoetryListByTagRequest) {
+    async execute({ tagName }: PoetryListByTagRequest) {
 
         const poetrys = await database.poetry.findMany({
             where: {
-                tags: { has: tag }
+                tags: { has: tagName }
             },
             include: {
-                author: true,
+                author: {
+                    select: {
+                        id: true,
+                        username: true,
+                        email: true,
+                        biography: true,
+                        profilePhoto: true,
+                        createdAt: true
+                    }
+                },
                 likes: true
             }
         });

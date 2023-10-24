@@ -11,17 +11,13 @@ class CreatePoetryService {
     async execute({ title, content, tags, authorId }: Poetry) {
         if (!title) {
             throw new Error(`Forneça um título para seu poema.`);
-        } else if (title.length < 3) {
-            throw new Error(`Seu título deve conter no mínimo 3 caracteres.`);
         }
 
         if (!content) {
             throw new Error(`Seu poema ${title} deve conter um conteúdo.`);
-        } else if (content.length < 34) {
-            throw new Error(`Seu poema deve conter no mínimo 34 caracteres.`);
         }
 
-        if (!tags.length) {
+        if (!tags) {
             throw new Error(`Seu poema deve conter pelo menos uma tag.`);
         }
 
