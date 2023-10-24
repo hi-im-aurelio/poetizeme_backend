@@ -28,7 +28,7 @@ class CreatePoetryService {
         if (!authorId) {
             throw new Error(`Forneça o id do autor do poema.`);
         } else {
-            const authorExists = await database.author.findFirst({
+            const authorExists = await database.author.findUnique({
                 where: { id: authorId }
             });
 
