@@ -10,6 +10,7 @@ import { ListPoetryController } from './controllers/poetrys/ListPoetryController
 import { CreatePoetryController } from './controllers/poetrys/CreatePoetryService';
 import { AddLikeController, RemoveLikeController } from './controllers/poetrys/LikeController';
 import { isAuthenticated } from './middlewares/isAuthenticated';
+import { GetPoetryByDateController } from './controllers/poetrys/GetPoetryByDateController';
 
 const router = Router();
 
@@ -25,6 +26,7 @@ router.post('/login', new LoginAuthorController().handle);
 router.post('/poetry/like', isAuthenticated, new AddLikeController().handle);
 router.post('/poetry/deslike', isAuthenticated, new RemoveLikeController().handle);
 router.post('/create-poetry', isAuthenticated, new CreatePoetryController().handle);
+router.post('/get-poetry-date-between', new GetPoetryByDateController().handle);
 
 router.get('/poetry', new ListPoetryController().handle);
 
