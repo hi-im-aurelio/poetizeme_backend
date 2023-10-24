@@ -12,3 +12,5 @@ class CreatePoetryController {
         return res.json(poetry);
     }
 }
+
+export { CreatePoetryController };
