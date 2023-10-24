@@ -20,7 +20,8 @@ class RemoveLikeController {
 
         const service = new RemoveLikeService();
 
-        const removeLike = service.execute({ poetryId, authorId });
+        const removeLike = await service.execute({ poetryId, authorId });
+
         return res.json(removeLike);
     }
 }

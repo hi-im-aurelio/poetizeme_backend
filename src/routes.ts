@@ -21,13 +21,13 @@ router.post('/author', new CreateAuthorController().handle);
 router.post('/login', new LoginAuthorController().handle);
 
 // Poetry routes
-router.post('/poetry', new CreatePoetryController().handle);
-
-router.get('/poetry/:id', new FindPoetryController().handle);
-router.get('/poetry/:tagName', new ListPoetryByTagController().handle);
-
-router.post('/poetry/:id/like', new AddLikeController().handle);
-router.post('/poetry/:id/deslike', new RemoveLikeController().handle);
+router.post('/create-poetry', new CreatePoetryController().handle);
 router.get('/poetry', new ListPoetryController().handle);
+
+router.get('/get-poetry-by-id/:id', new FindPoetryController().handle);
+router.get('/get-poety-by-tag/:tag', new ListPoetryByTagController().handle);
+
+router.post('/poetry/like', new AddLikeController().handle);
+router.post('/poetry/deslike', new RemoveLikeController().handle);
 
 export { router };

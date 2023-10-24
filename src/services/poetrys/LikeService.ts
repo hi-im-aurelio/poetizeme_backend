@@ -8,10 +8,17 @@ interface LikeData {
 class AddLikeService {
     async execute({ poetryId, authorId }: LikeData) {
 
+
         const poetry = await database.poetry.findUnique({ where: { id: poetryId } });
 
         if (!poetry) {
             throw new Error("Poema não encontrado.");
+        }
+
+        const author = await database.author.findUnique({ where: { id: authorId } });
+
+        if (!author) {
+            throw new Error("Usuário não encontrado.");
         }
 
         const existingLike = await database.like.findUnique({
@@ -24,7 +31,7 @@ class AddLikeService {
         });
 
         if (existingLike) {
-            throw new Error("Você já deu 'like' neste poema.");
+            throw new Error("Você já deu like neste poema.");
         }
 
         await database.like.create({
@@ -47,6 +54,12 @@ class RemoveLikeService {
             throw new Error("Poema não encontrado.");
         }
 
+        const author = await database.author.findUnique({ where: { id: authorId } });
+
+        if (!author) {
+            throw new Error("Usuário não encontrado.");
+        }
+
         const existingLike = await database.like.findUnique({
             where: {
                 poetryId_authorId: {
@@ -57,7 +70,7 @@ class RemoveLikeService {
         });
 
         if (!existingLike) {
-            throw new Error("Você não deu 'like' neste poema ainda.");
+            throw new Error("Você não deu like neste poema ainda.");
         }
 
         await database.like.delete({

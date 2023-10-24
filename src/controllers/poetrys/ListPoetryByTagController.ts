@@ -5,16 +5,12 @@ class ListPoetryByTagController {
 
     async handle(req: Request, res: Response) {
 
-        // const { tagName } = req.query;
-
-        // console.log(tag);
-
-        return res.json({ ok: true });
+        const { tag } = req.params;
 
         const service = new PoetryListByTagService();
 
-        // const poetrys = await service.execute({ tag: tag as string });
-        // return res.json(poetrys);
+        const poetrys = await service.execute({ tag });
+        return res.json(poetrys);
     }
 }
 
