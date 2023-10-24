@@ -26,13 +26,7 @@ class LoginAuthorService {
         }
 
 
-        const _token = sign(
-            { id: _author.id, username: _author.username },
-
-            process.env.JWT_SECRET,
-
-            { subject: _author.id, expiresIn: '30d' }
-        );
+        const _token = sign({ id: _author.id, username: _author.username }, process.env.JWT_SECRET, { subject: _author.id, expiresIn: '30d' });
 
         return {
             id: _author.id,

@@ -9,6 +9,7 @@ import { ListPoetryByTagController } from './controllers/poetrys/ListPoetryByTag
 import { ListPoetryController } from './controllers/poetrys/ListPoetryController';
 import { CreatePoetryController } from './controllers/poetrys/CreatePoetryService';
 import { AddLikeController, RemoveLikeController } from './controllers/poetrys/LikeController';
+import { isAuthenticated } from './middlewares/isAuthenticated';
 
 const router = Router();
 
@@ -21,13 +22,13 @@ router.post('/author', new CreateAuthorController().handle);
 router.post('/login', new LoginAuthorController().handle);
 
 // Poetry routes
-router.post('/create-poetry', new CreatePoetryController().handle);
+router.post('/poetry/like', isAuthenticated, new AddLikeController().handle);
+router.post('/poetry/deslike', isAuthenticated, new RemoveLikeController().handle);
+router.post('/create-poetry', isAuthenticated, new CreatePoetryController().handle);
+
 router.get('/poetry', new ListPoetryController().handle);
 
 router.get('/get-poetry-by-id/:id', new FindPoetryController().handle);
 router.get('/get-poety-by-tag/:tag', new ListPoetryByTagController().handle);
-
-router.post('/poetry/like', new AddLikeController().handle);
-router.post('/poetry/deslike', new RemoveLikeController().handle);
 
 export { router };
