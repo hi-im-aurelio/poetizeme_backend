@@ -14,7 +14,7 @@ import { GetPoetryByDateController } from './controllers/poetrys/GetPoetryByDate
 
 const router = Router();
 
-router.get('/hello-world', (_, response: Response) => {
+router.get('/', (_, response: Response) => {
     return response.json({ message: "Tudo funcionando!" });
 });
 
