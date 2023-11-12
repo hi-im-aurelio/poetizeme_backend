@@ -7,7 +7,7 @@ export default class DeleteAuthorService {
 
         if (!author) throw new Error("Id invalido.");
 
-        const deleteAction = await database.author.delete({
+        await database.author.delete({
             where: { id: id },
             select: {
                 id: true,
@@ -16,6 +16,6 @@ export default class DeleteAuthorService {
             },
         });
 
-        return deleteAction;
+        return { action: true };
     }
 }
