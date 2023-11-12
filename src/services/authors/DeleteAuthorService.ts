@@ -9,6 +9,9 @@ export default class DeleteAuthorService {
             throw new Error("Autor não encontrado. ID inválido ou autor já excluído.");
         }
 
+        // Para caso o author tenha publicado algum poema, todos eles serão apagados.
+        await database.poetry.deleteMany({ where: { author: author } });
+
         await database.author.delete({
             where: { id },
             select: {
