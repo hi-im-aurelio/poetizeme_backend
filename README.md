@@ -2,6 +2,9 @@
 
 Uma plataforma para amantes da poesia publicarem e apreciarem belos poemas.
 
+## Documentação
+[Leia a documentação aqui](https://github.com/fariosofernando/poetizeme_backend/tree/master/doc)
+
 ## Sobre
 
 O PoetizeMe permite que os usuários publiquem seus próprios poemas, leiam obras de outros e expressem apreço com um simples "like". Explore a beleza da escrita e encontre-se imerso no mundo da poesia!
