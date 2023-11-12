@@ -22,7 +22,7 @@ router.get('/', (_, response: Response) => {
 // Authors routes
 router.post('/author', new CreateAuthorController().handle);
 router.post('/login', new LoginAuthorController().handle);
-router.delete('/author/:id', isAuthenticated, new DeleteAuthorController().handle);
+router.delete('/delete-author', isAuthenticated, new DeleteAuthorController().handle);
 
 
 // Poetry routes

@@ -2,7 +2,9 @@
 
 ## Overview
 
-PoetizeMe is a API for poetry lovers to publish and appreciate beautiful poems.
+PoetizeMe is an API for poetry lovers to publish and appreciate beautiful poems.
+
+### User Management
 
 #### Register a new user (author)
 
@@ -34,6 +36,15 @@ POST /login
 }
 ```
 
+#### Delete User
+
+```http
+DELETE /delete-author
+```
+
+**Authentication:**
+- Include the user's token in the request headers.
+
 ### Poetry
 
 #### Create a new poem
@@ -42,14 +53,16 @@ POST /login
 POST /create-poetry
 ```
 
+**Authentication:**
+- Include the user's token in the request headers.
+
 **Request Body:**
 
 ```json
 {
     "title": "Pensamentos",
     "content": "...i like the cold, I like the snow. I like how she looks. I feel like crying when I see her. I feel like writing when I see it.",
-    "tags": ["Pensamento"],
-    "authorId": "3bbefcaf-9ccd-4c2d-8654-60bdef2bb4c8"
+    "tags": ["Pensamento"]
 }
 ```
 
@@ -77,12 +90,14 @@ GET /get-poety-by-tag/:tag
 POST /poetry/like
 ```
 
+**Authentication:**
+- Include the user's token in the request headers.
+
 **Request Body:**
 
 ```json
 {
-    "poetryId": "3fccfc35-7fde-4b6c-bc33-7784f44c6fba",
-    "authorId": "3bbefcaf-9ccd-4c2d-8654-60bdef2bb4c8"
+    "poetryId": "3fccfc35-7fde-4b6c-bc33-7784f44c6fba"
 }
 ```
 
@@ -92,12 +107,14 @@ POST /poetry/like
 POST /poetry/deslike
 ```
 
+**Authentication:**
+- Include the user's token in the request headers.
+
 **Request Body:**
 
 ```json
 {
-    "poetryId": "3fccfc35-7fde-4b6c-bc33-7784f44c6fba",
-    "authorId": "c3a99d93-0f05-47d8-9633-6b4052d8c9cb"
+    "poetryId": "3fccfc35-7fde-4b6c-bc33-7784f44c6fba"
 }
 ```
 
@@ -123,4 +140,3 @@ We welcome contributions in the form of code, suggestions, or bug reports. Feel 
 ## License
 
 This project is licensed under the MIT License.
-

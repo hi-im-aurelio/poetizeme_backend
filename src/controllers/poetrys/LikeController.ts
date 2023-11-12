@@ -4,7 +4,8 @@ import { AddLikeService, RemoveLikeService } from "../../services/poetrys/LikeSe
 class AddLikeController {
     async handle(req: Request, res: Response) {
 
-        const { poetryId, authorId } = req.body;
+        const { poetryId } = req.body;
+        const authorId: string = req.userId;
 
         const service = new AddLikeService();
 
@@ -16,7 +17,8 @@ class AddLikeController {
 class RemoveLikeController {
     async handle(req: Request, res: Response) {
 
-        const { poetryId, authorId } = req.body;
+        const { poetryId } = req.body;
+        const authorId: string = req.userId;
 
         const service = new RemoveLikeService();
 

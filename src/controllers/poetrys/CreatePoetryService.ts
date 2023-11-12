@@ -4,7 +4,9 @@ import { CreatePoetryService } from "../../services/poetrys/CreatePoetryService"
 class CreatePoetryController {
     async handle(req: Request, res: Response) {
 
-        const { title, content, tags, authorId } = req.body;
+        const { title, content, tags } = req.body;
+
+        const authorId: string = req.userId;
 
         const service = new CreatePoetryService();
 
