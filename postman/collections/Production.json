@@ -22,7 +22,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NmM5NjE0LTIxMGYtNDllMi05NzFmLTA0Y2FlYWQxZjBiOCIsInVzZXJuYW1lIjoidmVybmljYXBlYW5oYSIsImlhdCI6MTY5OTgyODMxNywiZXhwIjoxNzAyNDIwMzE3LCJzdWIiOiJhNzZjOTYxNC0yMTBmLTQ5ZTItOTcxZi0wNGNhZWFkMWYwYjgifQ.OEVOebI-rdpxcvG_Oj3E_y_w8RB2I3jC-Pyw1u2VApA",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -39,9 +39,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{localHost}}/create-poetry",
+							"raw": "{{poetizeme}}/create-poetry",
 							"host": [
-								"{{localHost}}"
+								"{{poetizeme}}"
 							],
 							"path": [
 								"create-poetry"
@@ -60,9 +60,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localHost}}/get-poetry-by-id/:id",
+							"raw": "{{poetizeme}}/get-poetry-by-id/:id",
 							"host": [
-								"{{localHost}}"
+								"{{poetizeme}}"
 							],
 							"path": [
 								"get-poetry-by-id",
@@ -88,9 +88,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localHost}}/poetry",
+							"raw": "{{poetizeme}}/poetry",
 							"host": [
-								"{{localHost}}"
+								"{{poetizeme}}"
 							],
 							"path": [
 								"poetry"
@@ -109,9 +109,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localHost}}/get-poety-by-tag/:tag",
+							"raw": "{{poetizeme}}/get-poety-by-tag/:tag",
 							"host": [
-								"{{localHost}}"
+								"{{poetizeme}}"
 							],
 							"path": [
 								"get-poety-by-tag",
@@ -139,7 +139,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNiYmVmY2FmLTljY2QtNGMyZC04NjU0LTYwYmRlZjJiYjRjOCIsInVzZXJuYW1lIjoiRmFyaW9zbyIsImlhdCI6MTY5ODEzMjAxNywiZXhwIjoxNzAwNzI0MDE3LCJzdWIiOiIzYmJlZmNhZi05Y2NkLTRjMmQtODY1NC02MGJkZWYyYmI0YzgifQ.Fvic33K4pPHSVYO4iNvGGc5A4m-dTSTSyJkd4eJ0JL4",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -156,9 +156,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{localHost}}/poetry/like",
+							"raw": "{{poetizeme}}/poetry/like",
 							"host": [
-								"{{localHost}}"
+								"{{poetizeme}}"
 							],
 							"path": [
 								"poetry",
@@ -175,6 +175,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -187,9 +197,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{localHost}}/poetry/deslike",
+							"raw": "{{poetizeme}}/poetry/deslike",
 							"host": [
-								"{{localHost}}"
+								"{{poetizeme}}"
 							],
 							"path": [
 								"poetry",
@@ -218,9 +228,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{localHost}}/get-poetry-date-between",
+							"raw": "{{poetizeme}}/get-poetry-date-between",
 							"host": [
-								"{{localHost}}"
+								"{{poetizeme}}"
 							],
 							"path": [
 								"get-poetry-date-between"
@@ -255,9 +265,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{localHost}}/author",
+							"raw": "{{poetizeme}}/author",
 							"host": [
-								"{{localHost}}"
+								"{{poetizeme}}"
 							],
 							"path": [
 								"author"
@@ -285,9 +295,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{localHost}}/login",
+							"raw": "{{poetizeme}}/login",
 							"host": [
-								"{{localHost}}"
+								"{{poetizeme}}"
 							],
 							"path": [
 								"login"
@@ -308,7 +318,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NmM5NjE0LTIxMGYtNDllMi05NzFmLTA0Y2FlYWQxZjBiOCIsInVzZXJuYW1lIjoidmVybmljYXBlYW5oYSIsImlhdCI6MTY5OTgyODMxNywiZXhwIjoxNzAyNDIwMzE3LCJzdWIiOiJhNzZjOTYxNC0yMTBmLTQ5ZTItOTcxZi0wNGNhZWFkMWYwYjgifQ.OEVOebI-rdpxcvG_Oj3E_y_w8RB2I3jC-Pyw1u2VApA",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -316,9 +326,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{localHost}}/delete-author",
+							"raw": "{{poetizeme}}/delete-author",
 							"host": [
-								"{{localHost}}"
+								"{{poetizeme}}"
 							],
 							"path": [
 								"delete-author"
