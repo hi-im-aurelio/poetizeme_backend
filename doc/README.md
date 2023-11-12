@@ -4,6 +4,8 @@
 
 PoetizeMe is an API for poetry lovers to publish and appreciate beautiful poems.
 
+## POSTMAN EXAMPLES
+[See the examples here](https://www.postman.com/blue-comet-9798/workspace/poetizeme/api)
 ### User Management
 
 #### Register a new user (author)
