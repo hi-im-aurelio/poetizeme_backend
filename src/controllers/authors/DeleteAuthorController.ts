@@ -7,8 +7,11 @@ export default class DeleteAuthorController {
 
         const { id } = request.params;
 
-        const action = await _service.execute(id);
-
-        return response.json(action);
+        try {
+            await _service.execute(id);
+            return response.status(204).send();
+        } catch (error) {
+            return response.status(500).json({ error: 'Erro ao excluir autor.' });
+        }
     }
 }
