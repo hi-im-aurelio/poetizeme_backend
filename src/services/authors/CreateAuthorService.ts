@@ -6,7 +6,7 @@ interface _CreateAuthorRequest {
     password: string;
 }
 
-class CreateAuhorService {
+export default class CreateAuthorService {
     async execute({ username, password }: _CreateAuthorRequest) {
 
         if (!username) {
@@ -17,7 +17,7 @@ class CreateAuhorService {
             throw new Error('Forneça uma senha para o usuário.');
         }
 
-        const usernameAlreadyExists = await database.author.findFirst({
+        const usernameAlreadyExists = await database.author.findUnique({
             where: { username: username }
         });
 
@@ -46,5 +46,3 @@ class CreateAuhorService {
 
     }
 }
-
-export { CreateAuhorService };

@@ -7,9 +7,12 @@ class LoginAuthorController {
 
         const { username, password } = request.body;
 
-        const _author = await _service.execute({ username, password });
-
-        return response.json(_author);
+        try {
+            const _author = await _service.execute({ username, password });
+            return response.status(201).json(_author);
+        } catch (error) {
+            return response.status(400).json({ error: error.message });
+        }
     }
 }
 

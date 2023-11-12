@@ -1,17 +1,18 @@
 import { Response, Request } from "express";
-import { CreateAuhorService } from "../../services/authors/CreateAuthorService";
+import CreateAuthorService from "../../services/authors/CreateAuthorService";
 
-class CreateAuthorController {
+export default class CreateAuthorController {
     async handle(request: Request, response: Response) {
 
         const { username, password } = request.body;
 
-        const _sevice = new CreateAuhorService();
-        const _author = await _sevice.execute({ username, password });
+        const service = new CreateAuthorService();
 
-        return response.json(_author);
+        try {
+            const createdAuthor = await service.execute({ username, password });
+            return response.status(201).json(createdAuthor);
+        } catch (error) {
+            return response.status(400).json({ error: error.message });
+        }
     }
 }
-
-
-export { CreateAuthorController }
