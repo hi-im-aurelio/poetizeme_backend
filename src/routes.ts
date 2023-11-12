@@ -11,6 +11,7 @@ import { CreatePoetryController } from './controllers/poetrys/CreatePoetryServic
 import { AddLikeController, RemoveLikeController } from './controllers/poetrys/LikeController';
 import { isAuthenticated } from './middlewares/isAuthenticated';
 import { GetPoetryByDateController } from './controllers/poetrys/GetPoetryByDateController';
+import DeleteAuthorController from './controllers/authors/DeleteAuthorController';
 
 const router = Router();
 
@@ -21,6 +22,8 @@ router.get('/', (_, response: Response) => {
 // Authors routes
 router.post('/author', new CreateAuthorController().handle);
 router.post('/login', new LoginAuthorController().handle);
+router.delete('/author/:id', isAuthenticated, new DeleteAuthorController().handle);
+
 
 // Poetry routes
 router.post('/poetry/like', isAuthenticated, new AddLikeController().handle);
