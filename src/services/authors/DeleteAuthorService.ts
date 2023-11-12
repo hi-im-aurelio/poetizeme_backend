@@ -3,12 +3,14 @@ import database from "../../prisma";
 export default class DeleteAuthorService {
     async execute(id: string) {
 
-        const author = await database.author.findFirst({ where: { id: id } });
+        const author = await database.author.findUnique({ where: { id } });
 
-        if (!author) throw new Error("Id invalido.");
+        if (!author) {
+            throw new Error("Autor não encontrado. ID inválido ou autor já excluído.");
+        }
 
         await database.author.delete({
-            where: { id: id },
+            where: { id },
             select: {
                 id: true,
                 username: true,
@@ -16,6 +18,6 @@ export default class DeleteAuthorService {
             },
         });
 
-        return { action: true };
+        return { success: true, deleted_author: author };
     }
 }
