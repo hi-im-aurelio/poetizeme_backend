@@ -1,0 +1,356 @@
+{
+	"info": {
+		"_postman_id": "f1c5e5bc-b5e5-4e29-9235-c5f0173a869a",
+		"name": "Production",
+		"description": "PoetizeMe is an API for poetry lovers to publish and appreciate beautiful poems",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "26433631-f1c5e5bc-b5e5-4e29-9235-c5f0173a869a"
+	},
+	"item": [
+		{
+			"name": "Poetrys",
+			"item": [
+				{
+					"name": "Create poetry",
+					"id": "a4fdc5b6-29de-4075-8635-a5e061e6a80a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NmM5NjE0LTIxMGYtNDllMi05NzFmLTA0Y2FlYWQxZjBiOCIsInVzZXJuYW1lIjoidmVybmljYXBlYW5oYSIsImlhdCI6MTY5OTgyODMxNywiZXhwIjoxNzAyNDIwMzE3LCJzdWIiOiJhNzZjOTYxNC0yMTBmLTQ5ZTItOTcxZi0wNGNhZWFkMWYwYjgifQ.OEVOebI-rdpxcvG_Oj3E_y_w8RB2I3jC-Pyw1u2VApA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Veronicas Sós 2\",\r\n    \"content\": \"Um poema de minha autoria, as vezes sem sentido algum...\",\r\n    \"tags\": [\"Pensamento\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHost}}/create-poetry",
+							"host": [
+								"{{localHost}}"
+							],
+							"path": [
+								"create-poetry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get poetry",
+					"id": "d18d4168-a993-4057-bfa4-055d3d4a382b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localHost}}/get-poetry-by-id/:id",
+							"host": [
+								"{{localHost}}"
+							],
+							"path": [
+								"get-poetry-by-id",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "dfd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all poetry",
+					"id": "c35387d3-7282-4725-8100-4c958858c10d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localHost}}/poetry",
+							"host": [
+								"{{localHost}}"
+							],
+							"path": [
+								"poetry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get poetry by tag name",
+					"id": "3857c005-07a3-42b6-a149-42b5288d7400",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localHost}}/get-poety-by-tag/:tag",
+							"host": [
+								"{{localHost}}"
+							],
+							"path": [
+								"get-poety-by-tag",
+								":tag"
+							],
+							"variable": [
+								{
+									"key": "tag",
+									"value": "Pensamento"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add like in poetry",
+					"id": "3202d501-3736-4add-baf5-a6f167166066",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNiYmVmY2FmLTljY2QtNGMyZC04NjU0LTYwYmRlZjJiYjRjOCIsInVzZXJuYW1lIjoiRmFyaW9zbyIsImlhdCI6MTY5ODEzMjAxNywiZXhwIjoxNzAwNzI0MDE3LCJzdWIiOiIzYmJlZmNhZi05Y2NkLTRjMmQtODY1NC02MGJkZWYyYmI0YzgifQ.Fvic33K4pPHSVYO4iNvGGc5A4m-dTSTSyJkd4eJ0JL4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"poetryId\": \"3fccfc35-7fde-4b6c-bc33-7784f44c6fba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHost}}/poetry/like",
+							"host": [
+								"{{localHost}}"
+							],
+							"path": [
+								"poetry",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove like ln poetry",
+					"id": "cfed06f9-934a-4450-8b04-ec38da18c580",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"poetryId\": \"3fccfc35-7fde-4b6c-bc33-7784f44c6fba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHost}}/poetry/deslike",
+							"host": [
+								"{{localHost}}"
+							],
+							"path": [
+								"poetry",
+								"deslike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get poetry by date between",
+					"id": "01c5b6c0-db90-4c72-8383-fcbb1bc136aa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\" : \"2023-10-24\",\r\n    \"endDate\" : \"2023-10-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHost}}/get-poetry-date-between",
+							"host": [
+								"{{localHost}}"
+							],
+							"path": [
+								"get-poetry-date-between"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "49194d8d-1800-467a-9fe9-890939f53b85",
+			"description": "Endpoint to manage poetrys."
+		},
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "Create author",
+					"id": "9bb02c1a-8de9-4945-911d-2b9522447e52",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\"   : \"Verônica Peçanha\",\r\n  \"password\"  : \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHost}}/author",
+							"host": [
+								"{{localHost}}"
+							],
+							"path": [
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login author",
+					"id": "93528dda-a917-4296-8bc2-5b3f965d165f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\"   : \"vernicapeanha\",\r\n  \"password\"  : \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHost}}/login",
+							"host": [
+								"{{localHost}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete author",
+					"id": "cfa209da-763a-4897-8727-7a4b7ab5070a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NmM5NjE0LTIxMGYtNDllMi05NzFmLTA0Y2FlYWQxZjBiOCIsInVzZXJuYW1lIjoidmVybmljYXBlYW5oYSIsImlhdCI6MTY5OTgyODMxNywiZXhwIjoxNzAyNDIwMzE3LCJzdWIiOiJhNzZjOTYxNC0yMTBmLTQ5ZTItOTcxZi0wNGNhZWFkMWYwYjgifQ.OEVOebI-rdpxcvG_Oj3E_y_w8RB2I3jC-Pyw1u2VApA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localHost}}/delete-author",
+							"host": [
+								"{{localHost}}"
+							],
+							"path": [
+								"delete-author"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "ac5f6189-c3a9-4b41-978d-7210931c7e72",
+			"description": "Endpoint to manage authors."
+		},
+		{
+			"name": "Hello world",
+			"id": "cbfa9574-a366-4b12-8e1d-a40051ef4a88",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{poetizeme}}/",
+					"host": [
+						"{{poetizeme}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
