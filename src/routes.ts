@@ -1,5 +1,5 @@
 import { Router, Response } from 'express';
-import { CreateAuthorController } from './controllers/authors/CreateAuthorController';
+import CreateAuthorController from './controllers/authors/CreateAuthorController';
 import { LoginAuthorController } from './controllers/authors/LoginAuthorController';
 
 
