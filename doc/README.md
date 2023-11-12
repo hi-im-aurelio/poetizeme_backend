@@ -8,6 +8,8 @@ PoetizeMe is an API for poetry lovers to publish and appreciate beautiful poems.
 [See the examples here](https://www.postman.com/blue-comet-9798/workspace/poetizeme/api)
 ### User Management
 
+### HOST: https://poetizeme-backend.vercel.app/
+
 #### Register a new user (author)
 
 ```http
